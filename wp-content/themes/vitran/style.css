@@ -1,0 +1,28 @@
+/*
+ Theme Name:   Viteran Theme
+ Theme URI:    http://sysbind.co.il/
+ Description:  A activello child theme
+ Author:       SysBind
+ Author URI:   http://sysbind.co.il/
+ Template:     activello
+ Version:      1.0.0
+*/
+
+@import url("../activello/style.css");
+
+header#masthead  {
+background-image: linear-gradient(90deg, rgb(212,241,254) 0%, rgb(255,255,
+    255) 100%);
+background-image: -moz-linear-gradient(right, rgb(212,241,254) 0%,rgb(255,255,
+    255) 100%);
+background-image: -webkit-gradient(linear, left top, right bottom,
+     color-stop(0.000, rgb(212,241,254)),color-stop(1.000, rgb(255,255,255)));
+}
+
+.navbar-brand>img {
+	width: 230px;
+}
+
+#logo {
+	padding: 1em 0 1em 0;
+}

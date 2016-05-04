@@ -80,6 +80,18 @@
 #side-sortables.gallery-custom-options {
 	min-height:10px !important;
 }
+/***fvpps***/
+#hugegalleryvrinput #gallery-unique-options-list li label {
+	display:inline-block;
+	width:100px;
+	padding:0px 0px 0px 10px;
+}
+
+#hugegalleryvrinput #gallery-shortcode-box ul li:first-child {
+	border-bottom:1px solid #ccc;
+	padding-bottom:18px;
+}
+/***fvpps***/
 /*CONTENT*/
 #post-body-heading {
 	width:100%;

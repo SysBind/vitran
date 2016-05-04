@@ -3,8 +3,8 @@ Contributors: Huge-IT
 Donate link: http://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, gallery image, content slider, widget gallery, sortable gallery, lightbox gallery, website gallery, gallery lightbox, galleries, wordpress gallery, photo gallery, gallery, best gallery, content gallery, media gallery, gallery plugin, wordpress photo gallery plugin, plugin gallery, add gallery, add image, add picture, add photo, portfolio, add images, add pictures, wp gallery, gallery slider, responsive wordpress photo gallery, Galleria, simple gallery, wordpress gallery plugin, free gallery, video gallery, wp gallery plugin, youtube gallery, photo albums, grid gallery, images gallery, filterable gallery, grid, photogallery, photoset, fullscreen gallery, justified, fullscreen slider, gallery shortcode, free photo gallery, best gallery plugin, photo album, image rotator, banner rotator, album, image album, wp gallery plugins, image gallery plugin, image slider, slideshow, slide, slideshow gallery, responsive gallery, gallery, multiple pictures, fotoalbum, photoalbum, justified gallery, pictures, picture, thumbnail gallery, slide show, responsive slideshow, gallery decription, thumbnails, image slideshow, gallery wordpress, shortcode gallery,
 Requires at least: 3.0.1
-Tested up to: 4.4.2
-Stable tag: 1.9.1
+Tested up to: 4.5.1
+Stable tag: 1.9.54
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,7 +24,7 @@ Huge-IT Image Gallery is the best plugin to use if you want to be original with 
 
 https://www.youtube.com/watch?v=fNz0hW01k3k
 
-Install Gallery plugin and see the result of your creativeness.
+Install Gallery plugin and see the result of your creativeness
 
 = Gallery Free Key Features =
 
@@ -32,17 +32,17 @@ Install Gallery plugin and see the result of your creativeness.
 
 * **Upload bundle of images into gallery** - Upload bunch of images using Images Manager, with one click insert images into the gallery.
 
-* **Gallery Order Change** - There are drag and drop option to change the order of the images in the gallery.
+* **Gallery Order Change** - There are drag and drop option to change the order of the images in the gallery
 
 * **Gallery View** - Choose among 7 beautiful views, which will suit the best for the gallery. Demonstration of the gallery on the front end can be made in different ways, no matter you use image gallery, video gallery or both in one gallery.
 
- * **Displaying Content** - How to show your gallery, 3 ways you can find on the right side of the gallery admin page: Show All, Pagination, Load More.
+* **Displaying Content** - How to show your gallery, 3 ways you can find on the right side of the gallery admin page: Show All, Pagination, Load More.
 
 * **Show All** - All gallery items on a long tape.
 
 * **Pagination** - Divide gallery into pages - pagination for gallery.
 
-* **Load More** - Divide gallery into parts using “Load More” button.
+* **Load More** - Divide gallery into parts using “Load More” button
 
 * **Advanced Compatibility** - Gallery plugin is compatible with Huge-IT plugins and with most of other plugins.
 
@@ -89,12 +89,9 @@ Install Gallery plugin and see the result of your creativeness.
 
 * **Title And Description** - Important possibility to add title and description to each image in the gallery. The description can be seen not in all view, but some of them have a place for it. Image Gallery accomplished with title and description looks rich and perfect.
 
-
 * **Ratings Styles** - In gallery settings, you can change Ratings Background Color, Ratings Font Color, Ratings Rated Font Color according to your taste for the gallery.
 
-
 * **Load More Styles** - Customize load more styles, change the Load More position, Load More font size, Load More font color in the gallery.
-
 
 * **Load More Button** - Your Load More button can be customized according to your gallery images, change Load More Font Hover Color, Load More Button Color, Background Hover Color.
 
@@ -105,7 +102,6 @@ Install Gallery plugin and see the result of your creativeness.
 * **Gallery Navigation** - In general options, you may disable navigation arrows, show or hide navigation dots for your gallery images. 
 
 * **Unlimited amount of galleries and images/videos** - Add an unlimited number of images and videos in a single gallery. Add as many gallery shortcodes on your pages as you need. 
-
 
 * **Gallery is Fully Responsive** - Image Gallery plugin is fully responsive for different screen sizes. Your gallery will be available for everyone to enjoy using any device.
 
@@ -124,16 +120,15 @@ Install Gallery plugin and see the result of your creativeness.
 *  **Image Gallery plugin is really wonderful** -  you can create very nice and beautiful gallery for your website. Gallery plugin is easy editable and the functionality is perfect.
 
 
+**7 Views of Image Gallery :**
 
-7 Views of Image Gallery :
-
-* **Gallery / Content Popup**
-* **Gallery Content Slider**
-* **Lightbox Gallery**
-* **Slideshow**
-* **Thumbnails gallery**
-* **Justified Gallery**
-* **Blog Style Gallery**
+* Gallery / Content Popup
+* Gallery Content Slider
+* Lightbox Gallery
+* Gallery slideshow
+* Thumbnails gallery
+* Justified Gallery
+* Blog Style Gallery
 
 
 * **Unlimited amount of images or videos to be added to the Image Gallery**
@@ -219,33 +214,14 @@ With Image Gallery pro license you are allowed to make many kinds of changes on 
 * Load more button for gallery items.
 
 
-= Demo 1 Gallery / Content Popup =
+### Unlimited Amount Of Gallery And Images
 
-In this gallery each post with the picture, gallery title under text open in popup and make them larger.In gallery button “View more” is under the text also inside the popup, it opens more information about the content. to close the popup press “cross” button and go back to the tape.
+Add unlimited number of images and videos in a single gallery. And as you created a number of image galleries, you can add as many gallery shortcodes in your page, as you need.
 
-= Demo 2 Gallery content slider =
 
-In gallery this view you can see your images with the text, title and “View More” button in slider. Gallery Just click on the arrows in the upper corners and slide the content.
+### Fully Responsive gallery
 
-= Demo 3 Lightbox Gallery =
-
-In this gallery view you can add only the images of images without text. Gallery title comes up from the bottom of the image as you hover the mouse on it. Images become larger with the lightbox and you can slide to watch them.
-
-= Demo 4 gallery slideshow =
-
-If you have seen Huge-IT Slider you will see this view is the same in gallery, your picture with its title and description on the image, moves with many beautiful effects as you click on arrows in gallery.
-
-= Demo 5 Thumbnails Gallery =
-
-Gallery this view shows your images like thumbnail. As you click they open in lightbox, and you can scroll them in gallery. there is not any text with it, only it’s title.
-
-= Demo 6 Justified Gallery =
-
-Justified gallery view of the Image Gallery allows you to represent your images and videos within your created gallery next to each other without padding between them.
-
-= Demo 7 gallery Blog Style View =
-
-Using Image Gallery with Blog Style Gallery views is the simplest and most understanding way of demonstrating your content within gallery. This view is made to simply display your images/videos with it’s natural dimensions, with title above and description under it.
+Image Gallery plugin is fully responsive for different sizes of screen. So your users will enjoy the gallery using it on any device.
 
 
 > #### Image Gallery Demos
@@ -276,13 +252,34 @@ If you think, that you found a bug in our [WordPress Image Gallery](http://huge-
 
 == Installation ==
 
-### First download the ZIP file Image Gallery,
+### Uploading in WordPress Dashboard Image Gallery
 
-1. Log in to your website administrator panel.
-2. Go to Plugins page, and add new plugin.
-3. Upload [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images)
-4. Click `Install Now` button.
-5. Then click `Activate Plugin` button.
+1. First download the Image Gallery ZIP file from Wordpress website
+2. Log in to your website administrator panel   
+3. Go to the 'Add New' in the plugins dashboard, click “Upload Plugin”
+4. Upload [WordPress Image Gallery](https://wordpress.org/plugins/gallery-images/) ZIP file by choosing it from your computer
+5. Click **Install** Now button
+6. Then click **Activate Plugin** button.
+7. You can see the Image Gallery plugin installed on Wordpress left menu.
+
+
+### Using The WordPress Plugins Dashboard
+
+1. Go to the 'Add New' in the plugins dashboard
+2. Search for 'Image Gallery Huge-IT'
+3. Click **Install** Now button
+4. Then click **Activate Plugin** button
+5. You can see the plugin installed on Wordpress left menu
+
+
+### Using FTP
+
+1. Download the ZIP file from Wordpress website
+2. Extract the **image-gallery** directory to your computer
+3. Upload the **image-gallery** directory to the **/wp-content/plugins/** directory
+4. Activate the plugin in the Plugin dashboard
+5. You can see the plugin installed on Wordpress left menu
+
 
 Now you can set your Image Gallery options, images and use our Image Gallery.
 
@@ -492,6 +489,10 @@ In gallery general options you can put check marks next to Show Ratings Count.
 = How to install Gallery plugin? =
 
 Go to Plugins page, add the new plugin, upload plugin image gallery, and Install Now, Activate Plugin image gallery and enjoy the process of creating your gallery. If you have some questions related with our gallery plugin feel free to contact our support team we are always ready to help you.
+
+= Can i add description text in gallery lightbox? =
+
+Image gallery Lightbox can show only title of the images/videos. No description can be added in it.
 
 If you think, that you found a bug in our [WordPress Image Gallery](http://huge-it.com/wordpress-gallery/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com).
 
@@ -790,7 +791,7 @@ Usage:
 * Background Transparency:  Adjust title background Transparency level 
 * Text Align: Choose text to align for title for the gallery
 
-*   **Description Styles*
+*  **Description Styles**
 * Show Description: For your gallery select whether to see the description text or not 
 * Font Size and color: Change the font size and color for the description of the gallery images
 * Background Color: Change color for description background in the gallery 
@@ -847,6 +848,30 @@ The commercial version users of Image Gallery can do unlimited customization, if
 
 
 == Changelog ==
+
+= 1.9.54 =
+*  Some mirror bug has been fixed.
+
+= 1.9.53 =
+*  Bugs has been fixed.
+
+= 1.9.52 =
+*  Admin style bug has been fixed.
+
+= 1.9.51 =
+*  Bugs has been fixed.
+
+= 1.9.5 =
+*  Bugs has been fixed.
+
+= 1.9.4 =
+*  Front end bug fixed in image gallery.
+
+= 1.9.3 =
+*  Back end bug fixed in image gallery.
+
+= 1.9.2 =
+*  Mirror Bug fixed in image gallery.
 
 = 1.9.1 =
 *  Front end bug fixed in image gallery.

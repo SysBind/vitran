@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Image Gallery
 Plugin URI: http://huge-it.com/wordpress-gallery/
 Description: Huge-IT Image Gallery is the best plugin to use if you want to be original with your website.
-Version: 1.9.1
+Version: 1.9.54
 Author: Huge-IT
 Author: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -15,7 +15,6 @@ function gallery_images_load_plugin_textdomain() {
 }
 
 add_action( 'plugins_loaded', 'gallery_images_load_plugin_textdomain' );
-
 
 add_action('media_buttons_context', 'add_gallery_my_custom_button');
 add_action('admin_footer', 'add_gallery_inline_popup_content');
@@ -111,24 +110,20 @@ str_replace('__5_5_5__','%',$row->name);
         $descnohtml=strip_tags(
 str_replace('__5_5_5__','%',$row->description));
         $result = substr($descnohtml, 0, 50);
-        ?>
-                <?php 
+      
                     $imagerowstype=$row->sl_type;
                     if($row->sl_type == ''){$imagerowstype='image';}
                     switch($imagerowstype){
                         case 'image':
-                ?>                                  
-                            <?php $imgurl=explode(";",$row->image_url); ?>
-                           <?php    if($row->image_url != ';'){ 
+						$imgurl=explode(";",$row->image_url); 
+						if($row->image_url != ';'){ 
                             $video='<img id="wd-cl-img'.$key.'" src="'.$imgurl[0].'" alt="" />';
                              } else {
                             $video='<img id="wd-cl-img'.$key.'" src="images/noimage.jpg" alt="" />';
-                            } ?>
-                <?php
+                            } 
                         break;
                         case 'video':
-                ?>
-                        <?php
+                
                             $videourl=get_video_gallery_id_from_url($row->image_url);
                             if($videourl[1]=='youtube'){
                                     if(empty($row->thumb_url)){
@@ -146,12 +141,9 @@ str_replace('__5_5_5__','%',$row->description));
                                     }
                                 $video='<img src="'.$imgsrc.'" alt="" />';
                             }
-                        ?>
-                <?php
                         break;
                     }
-                ?>
-           <?php if($row->sl_url==''){
+				if($row->sl_url==''){
                 $button='';
             }else{
                 if ($row->link_target=="on"){
@@ -161,8 +153,7 @@ str_replace('__5_5_5__','%',$row->description));
                 }
                 $button='<div class="button-block"><a href="'.$row->sl_url.'" '.$target.' >'. esc_html($_POST['linkbutton']).'</a></div>';
             }
-            ?>
-    <?php
+			
             $thumb_status_like='';
             if(isset($res3->image_status)&&$res3->image_status=='liked'){
                 $thumb_status_like=$res3->image_status;
@@ -267,8 +258,8 @@ if(isset($_POST['task']) && $_POST['task']=="load_images_lightbox"){
 str_replace('__5_5_5__','%',$row->name);
         $descnohtml=strip_tags(str_replace('__5_5_5__','%',$row->description));
         $result = substr($descnohtml, 0, 50);
-        ?>
-                <?php 
+
+		
                     $imagerowstype=$row->sl_type;
                     if($row->sl_type == ''){$imagerowstype='image';}
                     switch($imagerowstype){
@@ -281,12 +272,11 @@ str_replace('__5_5_5__','%',$row->name);
                             } 
                             else { 
                             $video='<img id="wd-cl-img'.$key.'" src="images/noimage.jpg" alt="" />';
-                            } ?>
-                <?php
+                            } 
+							
                         break;
                         case 'video':
-                ?>
-                        <?php
+
                             $videourl=get_video_gallery_id_from_url($row->image_url);
                             if($videourl[1]=='youtube'){
                                     if(empty($row->thumb_url)){
@@ -310,8 +300,7 @@ str_replace('__5_5_5__','%',$row->name);
                                     <div class="play-icon '.$videourl[1].'-icon"></div>
                                 </a>';
                             }
-                        ?>
-                <?php
+ 
                         break;
                     }
                 ?>
@@ -584,12 +573,8 @@ if(isset($_POST['task']) && $_POST['task']=="load_image_thumbnail"){
                                     $video='<a class="vimeo huge_it_gallery_item gallery_group'.$idofgallery.'" href="http://player.vimeo.com/video/'.$videourl[0].'" title="'.str_replace("__5_5_5__","%",$row->name).'"></a>
                                     <img alt="'.str_replace("__5_5_5__","%",$row->name).'" src="'.$imgsrc.'"  />';
                                 }
-                            ?>
-                    <?php
                         break;
                     }
-                    ?>
-<?php
             $thumb_status_like='';
             if(isset($res3->image_status)&&$res3->image_status=='liked'){
                 $thumb_status_like=$res3->image_status;

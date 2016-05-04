@@ -74,8 +74,8 @@
 		}?>
 
 		<div class="container">
-			<div id="logo">
-				<span class="site-name"><a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php
+			<div id="logo" class="row">
+				<span class="site-name col-md-4"><a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php
 					if( $show_logo && $logo ) {
                         echo wp_get_attachment_image($logo, 'full');
 					}
@@ -89,7 +89,7 @@
 				</span><!-- end of .site-name -->
 
 				<?php if( $show_tagline && get_bloginfo( 'description' ) != "" ) : ?>
-					<div class="tagline"><?php bloginfo( 'description' ); ?></div>
+					<div class="tagline col-md-8"><?php bloginfo( 'description' ); ?></div>
 				<?php endif; ?>
 			</div><!-- end of #logo -->
 

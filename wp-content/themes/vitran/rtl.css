@@ -1,0 +1,16 @@
+/*
+Theme Name: Viteran
+Template: activello
+*/
+
+.site-navigation-inner .navbar-header,
+.site-navigation-inner .navbar-collapse,
+.site-navigation-inner .nav.navbar-nav,
+.site-navigation-inner .navbar-nav>li,
+header .site-name {
+    float: right;
+}
+
+.site-navigation-inner .nav-search {
+    float: left;
+}

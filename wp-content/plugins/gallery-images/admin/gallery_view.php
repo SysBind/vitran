@@ -154,7 +154,25 @@ function html_showgallerys( $rows,  $pageNav,$sort,$cat_row){
 			float:right;
 			margin:15px 15px;
 		}
-		
+		/***fvpps***/
+		#freegallereria .free_best_version_banner .description_text {
+                        padding:0 0 13px 0;
+			position:relative;
+			display:block;
+			width:100%;
+			height: 80px;
+			text-align:center;
+			float:left;
+			font-family:'Open Sans',sans-serif;
+			color:#fffefe;
+			line-height:inherit;
+		}
+               #freegallereria .free_best_version_banner .description_text p{
+                        margin:0;
+                        padding:0;
+                        font-size: 14px;
+                }
+		/***fvpps***/
 		.free_version_banner .description_text {
                         padding:0 0 13px 0;
 			position:relative;
@@ -166,11 +184,11 @@ function html_showgallerys( $rows,  $pageNav,$sort,$cat_row){
 			color:#fffefe;
 			line-height:inherit;
 		}
-                .free_version_banner .description_text p{
+		.free_version_banner .description_text p{
                         margin:0;
                         padding:0;
                         font-size: 14px;
-                }
+		}
 		</style>
 	<div class="free_version_banner">
 		<img class="manual_icon" src="<?php echo $path_site2; ?>/icon-user-manual.png" alt="user manual" />
@@ -287,8 +305,6 @@ function html_showgallerys( $rows,  $pageNav,$sort,$cat_row){
 						$pr_count=$rows[$i]->prod_count;
 					else
 						$pr_count=0;
-
-
 					?>
 					<tr <?php if($trcount%2==0){ echo 'class="has-background"';}?>>
 						<td><?php echo $rows[$i]->id; ?></td>
@@ -305,19 +321,17 @@ function html_showgallerys( $rows,  $pageNav,$sort,$cat_row){
 				 echo $_POST['asc_or_desc']; }?>"  />
 			 <input type="hidden" name="order_by" id="order_by" value="<?php if(isset($_POST['order_by'])) echo $_POST['order_by'];?>"  />
 			 <input type="hidden" name="saveorder" id="saveorder" value="" />
-
-			<?php @session_start();
+			<?php 
+			@session_start();
 		  $hugeItCSRFToken = $_SESSION["csrf_token_hugeit_gallery"] = md5(time());
 	?>
 	<input type="hidden" name="csrf_token_hugeit_gallery" value="<?php echo $hugeItCSRFToken; ?>" />
 			
-		   
 			</form>
 		</div>
 	</div>
 </div>
     <?php
-
 }
 function Html_editgallery($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $rowsld, $rowsposts, $rowsposts8, $postsbycat)
 
@@ -329,8 +343,6 @@ function Html_editgallery($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $
 	header('Location: admin.php?page=gallerys_huge_it_gallery&id='.$row->id.'&task=apply');
 	}
 	}
-		
-	
 ?>
 <script type="text/javascript">
 function submitbutton(pressbutton) 
@@ -343,7 +355,6 @@ function submitbutton(pressbutton)
 	filterInputs();		
 	document.getElementById("adminForm").action=document.getElementById("adminForm").action+"&task="+pressbutton;
 	document.getElementById("adminForm").submit();
-	
 }
 var  name_changeRight = function(e) {
 	document.getElementById("name").value = e.value;
@@ -357,7 +368,6 @@ function change_select()
 		submitbutton('apply'); 
 	
 }
-
 	/*** creating array of changed projects***/
 
 function filterInputs() {
@@ -382,8 +392,6 @@ function filterInputs() {
 			});
 
 			mainInputs = mainInputs.substring(0,mainInputs.length-1);
-
-				
 			jQuery(".changedvalues").val(mainInputs);
 			
 			jQuery("#images-list > li").not('.submit-post').each(function(){
@@ -399,8 +407,7 @@ function filterInputs() {
 				jQuery(this).find('textarea').removeAttr('name');
 				jQuery(this).find('select').removeAttr('name');
 		});
-
-}	
+}
 		/***</add>***/
 		
 jQuery(function() {
@@ -449,7 +456,6 @@ jQuery(function() {
         },
 	  revert: true
 	});
-   // jQuery( "ul, li" ).disableSelection();
 	});
 </script>
 
@@ -628,7 +634,7 @@ jQuery(function() {
 
 				<div id="post-body">
 					<div id="post-body-heading">
-						<h3><?php echo __('Projects/Images', 'gallery-images'); ?></h3>
+						<h3><?php echo __('Images', 'gallery-images'); ?></h3>
 						
 
 
@@ -667,13 +673,7 @@ jQuery(document).ready(function($){
     _custom_media = false;
 	
   });
-/*	jQuery(".wp-media-buttons-icon").click(function() {
-		jQuery(".media-menu .media-menu-item").css("display","none");
-		jQuery(".media-menu-item:first").css("display","block");
-		jQuery(".separator").next().css("display","none");
-		jQuery('.attachment-filters').val('image').trigger('change');
-		jQuery(".attachment-filters").css("display","none");
-	});*/
+
 });
 </script>
 						<input type="hidden" name="imagess" id="_unique_name" />
@@ -686,9 +686,6 @@ jQuery(document).ready(function($){
 							<span class="wp-media-buttons-icon"></span><?php echo __('Add Video', 'gallery-images'); ?>
 						</a>
 
-
-					
-				
 					</div>
 					<ul id="images-list">
 					<?php
@@ -738,14 +735,6 @@ jQuery(document).ready(function($){
 	jQuery(".huge-it-editnewuploader").click(function() {
 	});
 		jQuery(".wp-media-buttons-icon").click(function() {
-	/*	jQuery(".wp-media-buttons-icon").click(function() {
-		jQuery(".media-menu .media-menu-item").css("display","none");
-		jQuery(".media-menu-item:first").css("display","block");
-		jQuery(".separator").next().css("display","none");
-		jQuery('.attachment-filters').val('image').trigger('change');
-		jQuery(".attachment-filters").css("display","none");
-
-	});*/
 });
 	if(jQuery('#rating').val()=='off'){
 			jQuery('.like_dislike_wrapper').css('display','none');
@@ -897,10 +886,8 @@ jQuery(document).ready(function($){
 						</li>
 						<?php
 						break;
-						
 						case 'video':
 						?>
-							
 							<li <?php if($i%2==0){echo "class='has-background'";}$i++; ?>  >
 							<input class="order_by" type="hidden" name="order_by_<?php echo $rowimages->id; ?>" value="<?php echo $rowimages->ordering; ?>" />
 								<?php 	if(strpos($rowimages->image_url,'youtube') !== false || strpos($rowimages->image_url,'youtu') !== false) {
@@ -965,9 +952,6 @@ jQuery(document).ready(function($){
 										<input type="hidden" name="sl_link_target<?php echo $rowimages->id; ?>" value="" />
 										<input  <?php if($rowimages->link_target == 'on'){ echo 'checked="checked"'; } ?>  class="link_target" type="checkbox" id="sl_link_target<?php echo $rowimages->id; ?>" name="sl_link_target<?php echo $rowimages->id; ?>" />
 									</label>
-									
-									
-							
 								</div>
 								<div class="remove-image-container">
 									<a onclick="deleteproject<?php echo $rowimages->id; ?>(); submitbutton('apply');" id="remove_image<?php echo $rowimages->id; ?>" class="button remove-image"><?php echo __('Remove Image', 'gallery-images'); ?></a>
@@ -993,9 +977,7 @@ jQuery(document).ready(function($){
 					<?php } ?>
 					</ul>
 				</div>
-
 			</div>
-				
 			<!-- SIDEBAR -->
 			<div id="postbox-container-1" class="postbox-container">
 				<div id="side-sortables" class="meta-box-sortables ui-sortable">
@@ -1020,8 +1002,6 @@ jQuery(document).ready(function($){
 						</li>
 						<script>
 						jQuery(document).ready(function ($){
-							//alert('hi');
-							//$('div[id^="list_"]')
 								if($('select[name="display_type"]').val()== 2){
 								$('li[id="content_per_page"]').hide();
 							}else{
@@ -1034,8 +1014,6 @@ jQuery(document).ready(function($){
 								$('li[id="content_per_page"]').show();
 							}
 							})
-							
-
 							$('#gallery-unique-options').on('change',function(){
 								$( 'div[id^="gallery-current-options"]').each(function(){
 								if(!$(this).hasClass( "active" )){
@@ -1047,7 +1025,6 @@ jQuery(document).ready(function($){
 								}
 							})
 							})
-							
 						})
 					</script>	
 					<div id="gallery-current-options-3" class="gallery-current-options <?php if($row->huge_it_sl_effects == 3){ echo ' active'; }  ?>">
@@ -1086,7 +1063,6 @@ jQuery(document).ready(function($){
 									<option <?php if($row->gallery_list_effects_s == 'random'){ echo 'selected'; } ?>  value="random"><?php echo __('Random', 'gallery-images'); ?></option>
 							</select>
 						</li>
-
 						<li>
 							<label for="sl_pausetime"><?php echo __('Pause time', 'gallery-images'); ?></label>
 							<input type="text" name="sl_pausetime" id="sl_pausetime" value="<?php echo $row->description; ?>" class="text_area" />
@@ -1107,115 +1083,84 @@ jQuery(document).ready(function($){
 					</div>
 						<div id="gallery-current-options-0" class="gallery-current-options <?php if($row->huge_it_sl_effects == 0){ echo ' active'; }  ?>">
 					<ul id="view0">
-						
 						  <li>
 							<label for="display_type"><?php echo __('Displaying Content', 'gallery-images'); ?></label>
 							<select id="display_type" name="display_type">
-
 								  <option <?php if($row->display_type == 0){ echo 'selected'; } ?>  value="0"><?php echo __('Pagination', 'gallery-images'); ?></option>
 									<option <?php if($row->display_type == 1){ echo 'selected'; } ?>   value="1"><?php echo __('Load More', 'gallery-images'); ?></option>
 									<option <?php if($row->display_type == 2){ echo 'selected'; } ?>   value="2"><?php echo __('Show All', 'gallery-images'); ?></option>
-						
 							</select>
 							</li>
 						<li id="content_per_page">
 							<label for="content_per_page"><?php echo __('Images Per Page', 'gallery-images'); ?></label>
 							<input type="text" name="content_per_page" id="content_per_page" value="<?php echo $row->content_per_page; ?>" class="text_area" />
 						</li>
-						
-
-					
 					</ul>
 					</div>
 						<div id="gallery-current-options-5" class="gallery-current-options <?php if($row->huge_it_sl_effects == 5){ echo ' active'; }  ?>">
 					<ul id="view5">
-						
 						  <li>
 							<label for="display_type"><?php echo __('Displaying Content', 'gallery-images'); ?></label>
 							<select id="display_type" name="display_type">
-
 								  <option <?php if($row->display_type == 0){ echo 'selected'; } ?>  value="0"><?php echo __('Pagination', 'gallery-images'); ?></option>
 									<option <?php if($row->display_type == 1){ echo 'selected'; } ?>   value="1"><?php echo __('Load More', 'gallery-images'); ?></option>
 									<option <?php if($row->display_type == 2){ echo 'selected'; } ?>   value="2"><?php echo __('Show All', 'gallery-images'); ?></option>
-						
 							</select>
 							</li>
 						<li id="content_per_page">
 							<label for="content_per_page"><?php echo __('Images Per Page', 'gallery-images'); ?></label>
 							<input type="text" name="content_per_page" id="content_per_page" value="<?php echo $row->content_per_page; ?>" class="text_area" />
 						</li>
-						
-
-					
 					</ul>
 					</div>
 					<div id="gallery-current-options-4" class="gallery-current-options <?php if($row->huge_it_sl_effects == 4){ echo ' active'; }  ?>">
 					<ul id="view4">
-						
 						  <li>
 							<label for="display_type"><?php echo __('Displaying Content', 'gallery-images'); ?></label>
 							<select id="display_type" name="display_type">
-
 								  <option <?php if($row->display_type == 0){ echo 'selected'; } ?>  value="0"><?php echo __('Pagination', 'gallery-images'); ?></option>
 									<option <?php if($row->display_type == 1){ echo 'selected'; } ?>   value="1"><?php echo __('Load More', 'gallery-images'); ?></option>
 									<option <?php if($row->display_type == 2){ echo 'selected'; } ?>   value="2"><?php echo __('Show All', 'gallery-images'); ?></option>
-						
 							</select>
 							</li>
 						<li id="content_per_page">
 							<label for="content_per_page"><?php echo __('Images Per Page', 'gallery-images'); ?></label>
 							<input type="text" name="content_per_page" id="content_per_page" value="<?php echo $row->content_per_page; ?>" class="text_area" />
 						</li>
-						
-
-					
 					</ul>
 					</div>
 					<div id="gallery-current-options-6" class="gallery-current-options <?php if($row->huge_it_sl_effects == 6){ echo ' active'; }  ?>">
 					<ul id="view6">
-						
 						  <li>
 							<label for="display_type"><?php echo __('Displaying Content', 'gallery-images'); ?></label>
 							<select id="display_type" name="display_type">
-
 								  <option <?php if($row->display_type == 0){ echo 'selected'; } ?>  value="0"><?php echo __('Pagination', 'gallery-images'); ?></option>
 									<option <?php if($row->display_type == 1){ echo 'selected'; } ?>   value="1"><?php echo __('Load More', 'gallery-images'); ?></option>
 									<option <?php if($row->display_type == 2){ echo 'selected'; } ?>   value="2"><?php echo __('Show All', 'gallery-images'); ?></option>
-						
 							</select>
 							</li>
 						<li id="content_per_page">
 							<label for="content_per_page"><?php echo __('Images Per Page', 'gallery-images'); ?></label>
 							<input type="text" name="content_per_page" id="content_per_page" value="<?php echo $row->content_per_page; ?>" class="text_area" />
 						</li>
-						
-
-					
 					</ul>
 					</div>
 						<div id="gallery-current-options-7" class="gallery-current-options <?php if($row->huge_it_sl_effects == 7){ echo ' active'; }  ?>">
 					<ul id="view7">
-						
 						  <li>
 							<label for="display_type"><?php echo __('Displaying Content', 'gallery-images'); ?></label>
 							<select id="display_type" name="display_type">
-
 								  <option <?php if($row->display_type == 0){ echo 'selected'; } ?>  value="0"><?php echo __('Pagination', 'gallery-images'); ?></option>
 									<option <?php if($row->display_type == 1){ echo 'selected'; } ?>   value="1"><?php echo __('Load More', 'gallery-images'); ?></option>
 									<option <?php if($row->display_type == 2){ echo 'selected'; } ?>   value="2"><?php echo __('Show All', 'gallery-images'); ?></option>
-						
 							</select>
 							</li>
 						<li id="content_per_page">
 							<label for="content_per_page"><?php echo __('Images Per Page', 'gallery-images'); ?></label>
 							<input type="text" name="content_per_page" id="content_per_page" value="<?php echo $row->content_per_page; ?>" class="text_area" />
 						</li>
-						
-
-					
 					</ul>
 					</div>
-					
 					<li>
 						<label for="rating"><?php echo __('Ratings', 'gallery-images'); ?></label>
 						<select id="rating" name="rating">
@@ -1263,15 +1208,10 @@ jQuery(document).ready(function($){
 	<input type="hidden" name="task" value="" />
 </form>
 </div>
-
 <?php
-
 }
-
-
 function html_popup_posts($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $rowsld, $paramssld, $rowsposts, $rowsposts8, $postsbycat){
 	global $wpdb;
-
 ?>
 			<style>
 				html.wp-toolbar {
@@ -1302,7 +1242,7 @@ function html_popup_posts($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $
 						jQuery("#save-buttom").click();
 						
 					});
-						
+
 					jQuery('.huge-it-post-checked').change(function(){
 						if(jQuery(this).is(':checked')){
 							jQuery(this).addClass('active');
@@ -1321,8 +1261,7 @@ function html_popup_posts($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $
 						});
 						jQuery('#huge-it-add-posts-params').val(inputval);
 					});
-	
-					
+
 					jQuery("#huge-it-categories-list").change(function(){
 						var currentCategoryID=jQuery(this).val();
 					
@@ -1351,8 +1290,7 @@ function html_popup_posts($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $
 				
 			</script>
 			<a id="closepopup"  onclick=" parent.eval('tb_remove()')" style="display:none;" > [X] </a>
-	
-	
+
 	<div id="huge_it_gallery_add_posts">
 					<div id="huge_it_gallery_add_posts_wrap">
 						<h2><?php echo __('Add post', 'gallery-images'); ?></h2>
@@ -1398,9 +1336,6 @@ else
 								<div class="huge-it-posts-list-category"><?php echo __('Category', 'gallery-images'); ?></div>
 							</li>
 							<?php 
-
-
-
 							$strx=1;
 							foreach($rowsposts8 as $rowspostspop1){
 								 $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."posts where post_type = 'post' and post_status = 'publish' and ID = %d  order by ID ASC", $rowspostspop1->object_id);
@@ -1443,11 +1378,8 @@ else
 				</div>		
 	<?php
 }
-?>
-<?php
 function html_gallery_video(){
 	global $wpdb;
-
 ?>
 	<style>
 		html.wp-toolbar {

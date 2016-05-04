@@ -248,19 +248,9 @@ function apply_cat($id)
 	$query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE id = %d", $id);
 	   $row=$wpdb->get_row($query);
 				/***<image optimize>***/
-	/*	$query="SELECT * FROM ".$wpdb->prefix."huge_itgallery_params";
-	    $rowspar = $wpdb->get_results($query);
-    $paramssld = array();
-    foreach ($rowspar as $rowpar) {
-        $key = $rowpar->name;
-        $value = $rowpar->value;
-        $paramssld[$key] = $value;
-    }*/
+
 			$image_prefix = "_huge_it_small_gallery";
-		/*	$view2_width = $paramssld['ht_view2_element_width']; 
-			$view3_width = $paramssld['thumb_image_width']; 
-			$view4_width = $paramssld["ht_view5_main_image_width"]; 
-			$view6_width = $paramssld["ht_view6_width"];*/
+
 				$cropwidth = 275;//max($view2_width ,$view3_width,$view4_width,$view6_width);
 		if(!function_exists('huge_it_copy_image_to_small')) {
 			function huge_it_copy_image_to_small($imgurl,$image_prefix,$width1) {

@@ -12,7 +12,6 @@ function get_video_id_from_url($url){
 }
 function front_end_gallery($images, $paramssld, $gallery)
 {
-
  ob_start();
 	$galleryID=$gallery[0]->id;
 	$gallerytitle=$gallery[0]->name;
@@ -1141,9 +1140,7 @@ jQuery(function(){
 //                 alert(elementwidth + " " + enterycontent + " " + whole + " " + sectionwidth);
       }
       <?php } ?>
-    
-    
-    
+
 	var $optionSets = jQuery('#huge_it_gallery_options .option-set'),
 	$optionLinks = $optionSets.find('a');
 
@@ -1329,7 +1326,32 @@ jQuery(document).ready(function(){
 	border-radius: 0px !important;
 	box-shadow: 0 0px 0px rgba(0, 0, 0, 0) !important; 
 }
+/***fvpps***/
 
+.free_video .portelemented .play-icss {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+	overflow: hidden;
+	outline:none; 
+}
+
+#Lucgallery #posts-body-heading .buttons.add-news-image .wp-medias-buttons-icon {
+	display: inline-block;
+	width: 90px;
+	height: 24px;
+	vertical-align: text-top;
+	color: #fff;
+	-webkit-box-shadow: inset 0 0px 0 #fff,0 1px 0 rgba(0,0,0,.08);
+	box-shadow: inset 0 0px 0 #fff,0 1px 0 rgba(0,0,0,.08);
+	border: none; 
+	padding-left: 22px;
+	background-position: 0px;
+	margin-right: 0px !important;
+}
+/***fvpps***/
 .element_<?php echo $galleryID; ?> .image-block_<?php echo $galleryID; ?> .gallery-image-overlay {
 	position:absolute;
 	top:0px;
@@ -1357,7 +1379,6 @@ jQuery(document).ready(function(){
 	height:100%;
 	background:url('<?php echo  plugins_url( '../images/zoom.'.$paramssld["ht_view2_zoombutton_style"].'.png' , __FILE__ ); ?>') center center no-repeat;
 }
-
 .element_<?php echo $galleryID; ?> .title-block_<?php echo $galleryID; ?> {
 	position:relative;
 	height: 30px;
@@ -1380,7 +1401,6 @@ jQuery(document).ready(function(){
 	line-height: <?php echo $paramssld["ht_view2_popup_title_font_size"];?>px !important;
 	color:#<?php echo $paramssld["ht_view2_element_title_font_color"];?>;
 }
-
 .element_<?php echo $galleryID; ?> .title-block_<?php echo $galleryID; ?> .button-block {
 	position:absolute;
 	right:0px;
@@ -1430,13 +1450,11 @@ jQuery(document).ready(function(){
 		color:<?php echo '#'.$paramssld['video_ht_view1_loadmore_font_color']; ?> !important;;
 		background:<?php echo '#'.$paramssld['video_ht_view1_button_color']; ?> !important;
 		cursor:pointer;
-
 	}
 	.load_more_button5:hover{
 		color:<?php echo '#'.$paramssld['video_ht_view1_loadmore_font_color_hover']; ?> !important;
 		background:<?php echo '#'.$paramssld['video_ht_view1_button_color_hover']; ?> !important;
 	}
-
 	.loading5 {
 		display:none;
 	}
@@ -1510,7 +1528,6 @@ jQuery(document).ready(function(){
 	border-left:1px solid #ccc;
 	opacity:.65;
 }
-
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .heading-navigation_<?php echo $galleryID; ?> .close:hover, #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .heading-navigation_<?php echo $galleryID; ?> .close:focus, #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .heading-navigation_<?php echo $galleryID; ?> .close:active {opacity:1;}
 
 
@@ -6563,7 +6580,6 @@ jQuery(function(){
 						width:37px;
 						background:url(<?php echo $arrowfolder;?>/arrows.black.out.png) left  top no-repeat; 
 					}
-					
 					#huge_it_slideshow_right_gallery_<?php echo $sliderID; ?> {
 						right:-21px;
 						margin-top:-20px;
@@ -6571,7 +6587,6 @@ jQuery(function(){
 						width:37px;
 						background:url(<?php echo $arrowfolder;?>/arrows.black.out.png) right top no-repeat; 
 					}
-
 				<?php
 				break;
 		}
@@ -9297,9 +9312,9 @@ case 7:
 						<?php endif; ?>
 						<span class="huge_it_like_thumb" id="<?php echo $row->id?>" data-status="<?php if(isset($res3->image_status)&&$res3->image_status=='liked'){echo $res3->image_status;}elseif (isset($res4->image_status)&&$res4->image_status=='liked') {echo $res4->image_status;}else{echo 'unliked'; }?>">
 						
-						<?php if($like_dislike == 'heart'):?>
-							<?php echo $row->like; ?>							   
-						<?php endif; ?>
+						<?php if($like_dislike == 'heart'):
+						echo $row->like; 
+						endif; ?>
 						</span>
 						<span class="huge_it_like_count <?php if($paramssld['ht_blog_rating_count']=='off') echo 'huge_it_hide'; ?>" id="<?php echo $row->id?>"><?php if($like_dislike != 'heart'):?><?php echo $row->like; ?><?php endif; ?></span>
 
@@ -9567,7 +9582,6 @@ if(jQuery("#video_view9_cont_wrapper<?=$idofgallery; ?> .pagenum:last").val()==j
 									}
 								},"json");
 							}
-
 						});
 					</script>
 				</div>
@@ -9597,24 +9611,22 @@ if(jQuery("#video_view9_cont_wrapper<?=$idofgallery; ?> .pagenum:last").val()==j
 				$checkREQ='?page-img'.$idofgallery.$pID;
 				
 			}
-			//var_dump($res);  
-			
-			// Проверяем нужны ли стрелки назад  
+
 				$pervpage='';
 			if ($page != 1) $pervpage = '<a href= '.$checkREQ.'=1><i class="icon-style hugeiticons-fast-backward" ></i></a>  
 			                               <a href= '.$checkREQ.'='. ($page - 1) .'><i class="icon-style hugeiticons-chevron-left"></i></a> ';  
-			// Проверяем нужны ли стрелки вперед  
+ 
 		       $nextpage='';
 			if ($page != $total) $nextpage = ' <a href= '.$checkREQ.'='. ($page + 1) .'><i class="icon-style hugeiticons-chevron-right"></i></a>  
 			                                   <a href= '.$checkREQ.'=' .$total. '><i class="icon-style hugeiticons-fast-forward" ></i></a>';  
 
-			// Находим две ближайшие станицы с обоих краев, если они есть  
+
 			/*if($page - 2 > 0) $page2left = ' <a href= ./?page='. ($page - 2) .'>'. ($page - 2) .'</a> | ';  
 			if($page - 1 > 0) $page1left = '<a href= ./?page='. ($page - 1) .'>'. ($page - 1) .'</a> | ';  
 			if($page + 2 <= $total) $page2right = ' | <a href= ./?page='. ($page + 2) .'>'. ($page + 2) .'</a>';  
 			if($page + 1 <= $total) $page1right = ' | <a href= ./?page='. ($page + 1) .'>'. ($page + 1) .'</a>'; */
 
-			// Вывод меню  
+ 
 			echo $pervpage.$page.'/'.$total.$nextpage;  
 
 			?>
@@ -9626,10 +9638,7 @@ if(jQuery("#video_view9_cont_wrapper<?=$idofgallery; ?> .pagenum:last").val()==j
 
 		<?php
 	break;
-
 }
- ?>
-      <?php   
 	return ob_get_clean();
 }  
 ?>
