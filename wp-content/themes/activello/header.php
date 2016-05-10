@@ -87,10 +87,7 @@
 					} ?>
 					</a>
 				</span><!-- end of .site-name -->
-
-				<?php if( $show_tagline && get_bloginfo( 'description' ) != "" ) : ?>
-					<div class="tagline col-md-8"><?php bloginfo( 'description' ); ?></div>
-				<?php endif; ?>
+				<div class="col-md-8 description"><h1>סטודיו לויטראז' ועיצוב זכוכית</h1><h2><a href="tel:0547776188">054-777-6188</a></h2></div>
 			</div><!-- end of #logo -->
 
 			<?php if( ! is_front_page() || ! is_home() ) : ?>

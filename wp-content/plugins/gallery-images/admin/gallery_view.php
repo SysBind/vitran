@@ -184,11 +184,11 @@ function html_showgallerys( $rows,  $pageNav,$sort,$cat_row){
 			color:#fffefe;
 			line-height:inherit;
 		}
-		.free_version_banner .description_text p{
+                .free_version_banner .description_text p{
                         margin:0;
                         padding:0;
                         font-size: 14px;
-		}
+                }
 		</style>
 	<div class="free_version_banner">
 		<img class="manual_icon" src="<?php echo $path_site2; ?>/icon-user-manual.png" alt="user manual" />
@@ -305,6 +305,8 @@ function html_showgallerys( $rows,  $pageNav,$sort,$cat_row){
 						$pr_count=$rows[$i]->prod_count;
 					else
 						$pr_count=0;
+
+
 					?>
 					<tr <?php if($trcount%2==0){ echo 'class="has-background"';}?>>
 						<td><?php echo $rows[$i]->id; ?></td>
@@ -319,19 +321,18 @@ function html_showgallerys( $rows,  $pageNav,$sort,$cat_row){
 			 <input type="hidden" name="asc_or_desc" id="asc_or_desc" value="<?php if(isset($_POST['asc_or_desc'])){
 				 $_POST['asc_or_desc'] = esc_html($_POST['asc_or_desc']);
 				 echo $_POST['asc_or_desc']; }?>"  />
-			 <input type="hidden" name="order_by" id="order_by" value="<?php if(isset($_POST['order_by'])) echo $_POST['order_by'];?>"  />
+			 <input type="hidden" name="order_by" id="order_by" value="<?php if(isset($_POST['order_by'])) echo esc_html($_POST['order_by']);?>"  />
 			 <input type="hidden" name="saveorder" id="saveorder" value="" />
-			<?php 
-			@session_start();
-		  $hugeItCSRFToken = $_SESSION["csrf_token_hugeit_gallery"] = md5(time());
-	?>
-	<input type="hidden" name="csrf_token_hugeit_gallery" value="<?php echo $hugeItCSRFToken; ?>" />
+
+			<?php wp_nonce_field('huge_it_gallery','huge_it_gallery_check'); ?>
 			
+		   
 			</form>
 		</div>
 	</div>
 </div>
     <?php
+
 }
 function Html_editgallery($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $rowsld, $rowsposts, $rowsposts8, $postsbycat)
 
@@ -343,6 +344,8 @@ function Html_editgallery($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $
 	header('Location: admin.php?page=gallerys_huge_it_gallery&id='.$row->id.'&task=apply');
 	}
 	}
+		
+	
 ?>
 <script type="text/javascript">
 function submitbutton(pressbutton) 
@@ -355,6 +358,7 @@ function submitbutton(pressbutton)
 	filterInputs();		
 	document.getElementById("adminForm").action=document.getElementById("adminForm").action+"&task="+pressbutton;
 	document.getElementById("adminForm").submit();
+	
 }
 var  name_changeRight = function(e) {
 	document.getElementById("name").value = e.value;
@@ -368,6 +372,7 @@ function change_select()
 		submitbutton('apply'); 
 	
 }
+
 	/*** creating array of changed projects***/
 
 function filterInputs() {
@@ -392,6 +397,8 @@ function filterInputs() {
 			});
 
 			mainInputs = mainInputs.substring(0,mainInputs.length-1);
+
+				
 			jQuery(".changedvalues").val(mainInputs);
 			
 			jQuery("#images-list > li").not('.submit-post').each(function(){
@@ -407,7 +414,8 @@ function filterInputs() {
 				jQuery(this).find('textarea').removeAttr('name');
 				jQuery(this).find('select').removeAttr('name');
 		});
-}
+
+}	
 		/***</add>***/
 		
 jQuery(function() {
@@ -456,6 +464,7 @@ jQuery(function() {
         },
 	  revert: true
 	});
+   // jQuery( "ul, li" ).disableSelection();
 	});
 </script>
 
@@ -704,7 +713,7 @@ jQuery(document).ready(function($){
 						<li <?php if($i%2==0){echo "class='has-background'";}$i++; ?>>
 						<input class="order_by" type="hidden" name="order_by_<?php echo $rowimages->id; ?>" value="<?php echo $rowimages->ordering; ?>" />
 							<div class="image-container">
-								<img src="<?php echo $rowimages->image_url; ?>" />
+								<img src="<?php echo esc_attr($rowimages->image_url); ?>" />
 								<div>
 										<script>
 jQuery(document).ready(function($){
@@ -775,7 +784,7 @@ jQuery(document).ready(function($){
 	   jQuery('#adminForm').attr('action', 'admin.php?page=gallerys_huge_it_gallery&task=edit_cat&id=<?php echo $row->id; ?>&removeslide=<?php echo $rowimages->id; ?>');
 	}
 </script>
-								<input type="hidden" name="imagess<?php echo $rowimages->id; ?>" id="_unique_name<?php echo $rowimages->id; ?>" value="<?php echo $rowimages->image_url; ?>" />
+								<input type="hidden" name="imagess<?php echo $rowimages->id; ?>" id="_unique_name<?php echo $rowimages->id; ?>" value="<?php echo esc_attr($rowimages->image_url); ?>" />
 								<span class="wp-media-buttons-icon"></span>
 								<div class="huge-it-editnewuploader uploader button<?php echo $rowimages->id; ?> add-new-image">
 								<input type="button" class="button<?php echo $rowimages->id; ?> wp-media-buttons-icon editimageicon" name="_unique_name_button<?php echo $rowimages->id; ?>" id="_unique_name_button<?php echo $rowimages->id; ?>" value="Edit image" />
@@ -785,15 +794,15 @@ jQuery(document).ready(function($){
 							<div class="image-options">
 								<div>
 									<label for="titleimage<?php echo $rowimages->id; ?>"><?php echo __('Title:', 'gallery-images'); ?></label>
-									<input  class="text_area" type="text" id="titleimage<?php echo $rowimages->id; ?>" name="titleimage<?php echo $rowimages->id; ?>" id="titleimage<?php echo $rowimages->id; ?>"  value="<?php echo str_replace('__5_5_5__','%',$rowimages->name); ?>">
+									<input  class="text_area" type="text" id="titleimage<?php echo $rowimages->id; ?>" name="titleimage<?php echo $rowimages->id; ?>" id="titleimage<?php echo $rowimages->id; ?>"  value="<?php echo esc_attr(str_replace('__5_5_5__','%',$rowimages->name)); ?>">
 								</div>
 								<div class="description-block">
 									<label for="im_description<?php echo $rowimages->id; ?>"><?php echo __('Description:', 'gallery-images'); ?></label>
-									<textarea id="im_description<?php echo $rowimages->id; ?>" name="im_description<?php echo $rowimages->id; ?>" ><?php echo str_replace('__5_5_5__','%',$rowimages->description); ?></textarea>
+									<textarea id="im_description<?php echo $rowimages->id; ?>" name="im_description<?php echo $rowimages->id; ?>" ><?php echo esc_html(str_replace('__5_5_5__','%',$rowimages->description)); ?></textarea>
 								</div>
 								<div class="link-block">
 									<label for="sl_url<?php echo $rowimages->id; ?>">URL:</label>
-									<input class="text_area url-input" type="text" id="sl_url<?php echo $rowimages->id; ?>" name="sl_url<?php echo $rowimages->id; ?>"  value="<?php echo str_replace('__5_5_5__','%',$rowimages->sl_url); ?>" >
+									<input class="text_area url-input" type="text" id="sl_url<?php echo $rowimages->id; ?>" name="sl_url<?php echo $rowimages->id; ?>"  value="<?php echo esc_attr(str_replace('__5_5_5__','%',$rowimages->sl_url)); ?>" >
 									<label class="long" for="sl_link_target<?php echo $rowimages->id; ?>">
 										<span><?php echo __('Open in new tab', 'gallery-images'); ?></span>
 										<input type="hidden" name="sl_link_target<?php echo $rowimages->id; ?>" value="" />
@@ -838,7 +847,7 @@ jQuery(document).ready(function($){
 										<select name="titleimage<?php echo $rowimages->id; ?>" class="categories-list">
 											<option <?php if(str_replace('__5_5_5__','%',$rowimages->name) == 0){echo 'selected="selected"';} ?> value="0"><?php echo __('All Categories', 'gallery-images'); ?></option>
 										<?php foreach ($categories as $strcategories){ ?>
-											<option <?php if(str_replace('__5_5_5__','%',$rowimages->name) == $strcategories->cat_name){echo 'selected="selected"';} ?> value="<?php echo $strcategories->cat_name; ?>"><?php echo $strcategories->cat_name; ?></option>
+											<option <?php if(str_replace('__5_5_5__','%',$rowimages->name) == $strcategories->cat_name){echo 'selected="selected"';} ?> value="<?php echo esc_attr($strcategories->cat_name); ?>"><?php echo $strcategories->cat_name; ?></option>
 										<?php	}	?> 
 										</select>
 									</div>
@@ -932,13 +941,13 @@ jQuery(document).ready(function($){
 			   jQuery('#adminForm').attr('action', 'admin.php?page=gallerys_huge_it_gallery&task=edit_cat&id=<?php echo $row->id; ?>&removeslide=<?php echo $rowimages->id; ?>');
 			}
 											</script>
-											<input type="hidden" name="imagess<?php echo $rowimages->id; ?>" value="<?php echo $rowimages->image_url; ?>" />
+											<input type="hidden" name="imagess<?php echo $rowimages->id; ?>" value="<?php echo esc_attr($rowimages->image_url); ?>" />
 										</div>
 									</div>
 									<div class="image-options">
 								<div>
 									<label for="titleimage<?php echo $rowimages->id; ?>"><?php echo __('Title:', 'gallery-images'); ?></label>
-									<input  class="text_area" type="text" id="titleimage<?php echo $rowimages->id; ?>" name="titleimage<?php echo $rowimages->id; ?>" id="titleimage<?php echo $rowimages->id; ?>"  value="<?php echo str_replace('__5_5_5__','%',$rowimages->name); ?>">
+									<input  class="text_area" type="text" id="titleimage<?php echo $rowimages->id; ?>" name="titleimage<?php echo $rowimages->id; ?>" id="titleimage<?php echo $rowimages->id; ?>"  value="<?php echo esc_attr(str_replace('__5_5_5__','%',$rowimages->name)); ?>">
 								</div>
 								<div class="description-block">
 									<label for="im_description<?php echo $rowimages->id; ?>"><?php echo __('Description:', 'gallery-images'); ?></label>
@@ -946,7 +955,7 @@ jQuery(document).ready(function($){
 								</div>
 								<div class="link-block">
 									<label for="sl_url<?php echo $rowimages->id; ?>">URL:</label>
-									<input class="text_area url-input" type="text" id="sl_url<?php echo $rowimages->id; ?>" name="sl_url<?php echo $rowimages->id; ?>"  value="<?php echo str_replace('__5_5_5__','%',$rowimages->sl_url); ?>" >
+									<input class="text_area url-input" type="text" id="sl_url<?php echo $rowimages->id; ?>" name="sl_url<?php echo $rowimages->id; ?>"  value="<?php echo esc_attr(str_replace('__5_5_5__','%',$rowimages->sl_url)); ?>" >
 									<label class="long" for="sl_link_target<?php echo $rowimages->id; ?>">
 										<span><?php echo __('Open in new tab', 'gallery-images'); ?></span>
 										<input type="hidden" name="sl_link_target<?php echo $rowimages->id; ?>" value="" />
@@ -959,14 +968,14 @@ jQuery(document).ready(function($){
 								<div class="like_dislike_wrapper">
 									<label for="like_<?php echo $rowimages->id; ?>"><?php echo __('Ratings:', 'gallery-images'); ?></label>
 									<label for="like_<?php echo $rowimages->id; ?>" class="like"><?php echo __('Like', 'gallery-images'); ?></label>
-									<input  class="" type="number" id="like_<?php echo $rowimages->id; ?>" name="like_<?php echo $rowimages->id; ?>" value="<?php echo str_replace('__5_5_5__','%',$rowimages->like); ?>">
+									<input  class="" type="number" id="like_<?php echo $rowimages->id; ?>" name="like_<?php echo $rowimages->id; ?>" value="<?php echo esc_attr(str_replace('__5_5_5__','%',$rowimages->like)); ?>">
 									<label for="dislike_<?php echo $rowimages->id; ?>" class="dislike"><?php echo __('Dislike', 'gallery-images'); ?></label>
-									<input  class="" num="<?php echo $rowimages->id; ?>" type="number" id="dislike_<?php echo $rowimages->id; ?>" name="dislike_<?php echo $rowimages->id; ?>" value="<?php echo str_replace('__5_5_5__','%',$rowimages->dislike); ?>">
+									<input  class="" num="<?php echo $rowimages->id; ?>" type="number" id="dislike_<?php echo $rowimages->id; ?>" name="dislike_<?php echo $rowimages->id; ?>" value="<?php echo esc_attr(str_replace('__5_5_5__','%',$rowimages->dislike)); ?>">
 								</div>
 								<div class="heart_wrapper">
 									<label for="like_<?php echo $rowimages->id; ?>"><?php echo __('Ratings:', 'gallery-images'); ?></label>
 									<label for="like_<?php echo $rowimages->id; ?>" class="like"><?php echo __('Hearts', 'gallery-images'); ?></label>
-									<input  class="" num="<?php echo $rowimages->id; ?>" type="number" id="like_<?php echo $rowimages->id; ?>" name="like_<?php echo $rowimages->id; ?>" value="<?php echo str_replace('__5_5_5__','%',$rowimages->like); ?>">								
+									<input  class="" num="<?php echo $rowimages->id; ?>" type="number" id="like_<?php echo $rowimages->id; ?>" name="like_<?php echo $rowimages->id; ?>" value="<?php echo esc_attr(str_replace('__5_5_5__','%',$rowimages->like)); ?>">								
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -996,8 +1005,8 @@ jQuery(document).ready(function($){
 									<option <?php if($row->huge_it_sl_effects == '5'){ echo 'selected'; } ?>  value="5"><?php echo __('Lightbox-Gallery', 'gallery-images'); ?></option>
 									<option <?php if($row->huge_it_sl_effects == '3'){ echo 'selected'; } ?>  value="3"><?php echo __('Slider', 'gallery-images'); ?></option>
 									<option <?php if($row->huge_it_sl_effects == '4'){ echo 'selected'; } ?>  value="4"><?php echo __('Thumbnails View', 'gallery-images'); ?></option>
-                                    <option <?php if($row->huge_it_sl_effects == '6'){ echo 'selected'; } ?>  value="6"><?php echo __('Justified', 'gallery-images'); ?></option>
-                                    <option <?php if($row->huge_it_sl_effects == '7'){ echo 'selected'; } ?>  value="7"><?php echo __('Blog Style Gallery', 'gallery-images'); ?></option>
+                                                                        <option <?php if($row->huge_it_sl_effects == '6'){ echo 'selected'; } ?>  value="6"><?php echo __('Justified', 'gallery-images'); ?></option>
+                                                                        <option <?php if($row->huge_it_sl_effects == '7'){ echo 'selected'; } ?>  value="7"><?php echo __('Blog Style Gallery', 'gallery-images'); ?></option>
 							</select>
 						</li>
 						<script>
@@ -1201,10 +1210,7 @@ jQuery(document).ready(function($){
 			</div>
 		</div>
 	</div>
-		<?php @session_start();
-		  $hugeItCSRFToken = $_SESSION["csrf_token_hugeit_gallery"] = md5(time());
-	?>
-	<input type="hidden" name="csrf_token_hugeit_gallery" value="<?php echo $hugeItCSRFToken; ?>" />
+        <?php wp_nonce_field('huge_it_gallery','huge_it_gallery_check'); ?>
 	<input type="hidden" name="task" value="" />
 </form>
 </div>
@@ -1378,8 +1384,11 @@ else
 				</div>		
 	<?php
 }
+?>
+<?php
 function html_gallery_video(){
 	global $wpdb;
+
 ?>
 	<style>
 		html.wp-toolbar {

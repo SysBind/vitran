@@ -3,8 +3,8 @@ Contributors: Huge-IT
 Donate link: http://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, gallery image, content slider, widget gallery, sortable gallery, lightbox gallery, website gallery, gallery lightbox, galleries, wordpress gallery, photo gallery, gallery, best gallery, content gallery, media gallery, gallery plugin, wordpress photo gallery plugin, plugin gallery, add gallery, add image, add picture, add photo, portfolio, add images, add pictures, wp gallery, gallery slider, responsive wordpress photo gallery, Galleria, simple gallery, wordpress gallery plugin, free gallery, video gallery, wp gallery plugin, youtube gallery, photo albums, grid gallery, images gallery, filterable gallery, grid, photogallery, photoset, fullscreen gallery, justified, fullscreen slider, gallery shortcode, free photo gallery, best gallery plugin, photo album, image rotator, banner rotator, album, image album, wp gallery plugins, image gallery plugin, image slider, slideshow, slide, slideshow gallery, responsive gallery, gallery, multiple pictures, fotoalbum, photoalbum, justified gallery, pictures, picture, thumbnail gallery, slide show, responsive slideshow, gallery decription, thumbnails, image slideshow, gallery wordpress, shortcode gallery,
 Requires at least: 3.0.1
-Tested up to: 4.5.1
-Stable tag: 1.9.54
+Tested up to: 4.5.2
+Stable tag: 1.9.55
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -848,6 +848,9 @@ The commercial version users of Image Gallery can do unlimited customization, if
 
 
 == Changelog ==
+
+= 1.9.55 =
+*  Security bugs has been fixed
 
 = 1.9.54 =
 *  Some mirror bug has been fixed.

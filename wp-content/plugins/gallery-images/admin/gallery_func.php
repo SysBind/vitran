@@ -69,10 +69,10 @@ return $trr_cat;
 }
 function editgallery($id)
   {
-	  global $wpdb;
-	  				 @session_start();
-		 if(isset($_POST['csrf_token_hugeit_gallery']) && (!isset($_SESSION["csrf_token_hugeit_gallery"]) || $_SESSION["csrf_token_hugeit_gallery"] != @$_POST['csrf_token_hugeit_gallery']))
-		 { exit; }
+        global $wpdb;
+        if(isset($_POST['huge_it_gallery_check'])  && !wp_verify_nonce($_POST['huge_it_gallery_check'], 'huge_it_gallery'))  {
+            exit;
+        }
 	if(isset($_POST["huge_it_sl_effects"])){
 		if(isset($_GET["removeslide"])){
 			if($_GET["removeslide"] != ''){
@@ -112,7 +112,7 @@ INSERT INTO
 	 $rowsposts8 = '';
 	 $postsbycat = '';
 	 if(isset($_POST["iframecatid"])){
-	 	  $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."term_relationships where term_taxonomy_id = %d order by object_id ASC",$_POST["iframecatid"]);
+	 	  $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."term_relationships where term_taxonomy_id = %d order by object_id ASC",  intval($_POST["iframecatid"]));
 		$rowsposts8=$wpdb->get_results($query);
 			   foreach($rowsposts8 as $rowsposts13){
 	 $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."posts where post_type = 'post' and post_status = 'publish' and ID = %d  order by ID ASC",$rowsposts13->object_id);
@@ -148,7 +148,7 @@ function gallery_video($id)
 	  $table_name = $wpdb->prefix . "huge_itgallery_images";
 	  $sql_video = "INSERT INTO 
 `" . $table_name . "` ( `name`, `gallery_id`, `description`, `image_url`, `sl_url`, `sl_type`, `link_target`, `ordering`, `published`, `published_in_sl_width`) VALUES 
-( '".$_POST["show_title"]."', '".$id."', '".$_POST["show_description"]."', '".$_POST["huge_it_add_video_input"]."', '".$_POST["show_url"]."', 'video', 'on', '0', '1', '1' )";
+( '".sanitize_text_field($_POST["show_title"])."', '".$id."', '".sanitize_text_field($_POST["show_description"])."', '".sanitize_text_field($_POST["huge_it_add_video_input"])."', '".sanitize_text_field($_POST["show_url"])."', 'video', 'on', '0', '1', '1' )";
 	  $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE id= %d",$id);
 	   $row=$wpdb->get_row($query);
 	    $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = %d order by id ASC", $row->id);
@@ -193,9 +193,11 @@ function apply_cat($id)
 		 $max_ord=$wpdb->get_var('SELECT MAX(ordering) FROM '.$wpdb->prefix.'huge_itgallery_gallerys');
             $query=$wpdb->prepare("SELECT sl_width FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE id = %d", $id);
 	        $id_bef=$wpdb->get_var($query);
-					 @session_start();
-		 if(isset($_POST['csrf_token_hugeit_gallery']) && (!isset($_SESSION["csrf_token_hugeit_gallery"]) || $_SESSION["csrf_token_hugeit_gallery"] != @$_POST['csrf_token_hugeit_gallery']))
-		 { exit; }
+                
+		if(isset($_POST['huge_it_gallery_check'])  && !wp_verify_nonce($_POST['huge_it_gallery_check'], 'huge_it_gallery'))  {
+                    exit;
+                }
+                
 	if(isset($_POST["content"])){
 	$script_cat = preg_replace('#<script(.*?)>(.*?)</script>#is', '', stripslashes($_POST["content"]));
 	}
@@ -316,9 +318,10 @@ function apply_cat($id)
 		}
 				/***<image optimize>***/			
 	if(isset($_POST['changedvalues']) && $_POST['changedvalues'] != '') {
-				
-			    $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = %d  AND id in (".$_POST['changedvalues'].")  order by id ASC", $row->id);				
-			   $rowim=$wpdb->get_results($query);
+                        
+			$chagedValues = sanitize_text_field($_POST['changedvalues']);	
+                        $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = %d  AND id in (".$chagedValues.")  order by id ASC", $row->id);				
+                        $rowim=$wpdb->get_results($query);
 		foreach ($rowim as $key=>$rowimages){
 			if(isset($_POST["order_by_".$rowimages->id.""])&&isset($_POST["like_".$rowimages->id.""])){
 			$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  ordering = '".$_POST["order_by_".$rowimages->id.""]."'  WHERE ID = %d ", $rowimages->id));

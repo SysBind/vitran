@@ -232,7 +232,7 @@
 	clear:both;
 	height:20px;
 	padding:10px 0px 0px 0px;
-	width:100%;
+	width:auto !important;
 	bottom: 15px;
     right: 30px;
 }
